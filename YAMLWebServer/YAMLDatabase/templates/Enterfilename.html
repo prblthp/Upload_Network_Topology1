@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<center>
+<h3>Add new Testbed entry</h3>
+
+<hr>
+
+<form method="post" action = "/update/{{id}}">
+    {%csrf_token %}
+    {{form}}
+    <input type = "submit">
+</form>
+    <a href = "{% url 'filenamedisplay' %}">Filename Records Page</a>
+</center>
+{% endblock %}

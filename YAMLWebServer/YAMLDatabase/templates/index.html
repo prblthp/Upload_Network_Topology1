@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h1>Hosts of Testbed: {{filename.filename}}</h1>
+
+
+<head>
+    <title>Create host records</title>
+</head>
+
+
+
+<body>
+<hr>
+
+<form method = "POST">
+    {% csrf_token %}
+    <tr>
+    {{ formset.as_p }}
+        </tr>
+
+    <button type="submit">Save host</button>
+    <button type="button">
+    <a href="/dashboard/{{filename.id}}">See all hosts</a>
+    </button>
+
+</form>
+<h1>{{message}}</h1>
+</body>
+{% endblock %}

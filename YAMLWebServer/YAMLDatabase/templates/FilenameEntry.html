@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<head>
+    <title>Create new file</title>
+</head>
+<body>
+<center>
+    <h1>Add new Testbed entry</h1>
+    <h5>(Enter without the .yaml extension)</h5>
+    <hr/>
+    <form method="POST">
+        {% csrf_token %}
+    <table border = "1">
+    <tr>
+        <td>filename</td>
+        <td><input type="text" placeholder="Filename ..." name="filename"></td>
+    </tr>
+</table>
+
+
+        <input type="submit" value="Create File"/>
+
+
+        <hr/>
+        <tr>
+        <button>
+            <a href = "{% url 'filenamedisplay' %}">Go to Testbed Records</a>
+        </button>
+        </tr>
+            <hr/>
+        {% if messages %}
+        {% for result in messages %}
+        <b style = "color:green;">{{result}}</b>
+        {% endfor %}
+        {% endif %}
+
+        <b style = "color:red;">{{message}}</b>
+
+</form>
+</center>
+</body>
+
+{% endblock %}

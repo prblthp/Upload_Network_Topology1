@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<head>
+    <title>Edit & Update Page</title>
+</head>
+<body>
+<center>
+    <h1>Edit & Update Network Record</h1>
+    <h2> Filename: {{filename}} </h2>
+    <hr/>
+    <form method = "POST" action = "/update/{{id}}">
+        {% csrf_token %}
+
+        {{YAMLEntry.as_p}}
+    <input type="submit" value="Update Host Record">
+
+
+        <button>
+            <a href="{% url 'filenamedisplay' %}">Go to Testbed Records </a>
+            </button>
+
+
+            <hr/>
+        {% if messages %}
+        {% for result in messages %}
+        <b style = "color:green;">{{result}}</b>
+        {% endfor %}
+        {% endif %}
+
+</form>
+</center>
+</body>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<center>
+    <h3>Host Records of: {{filename}}</h3>
+    <hr/>
+
+
+    <table border="1">
+
+        <tr>
+
+            <th>hostname</th>
+            <th>host</th>
+            <th>username</th>
+            <th>password</th>
+            <th>device_type</th>
+        </tr>
+
+        {% for list in lists %}
+
+                <tr>
+
+                <td>{{list.1}}</td>
+                <td>{{list.2}}</td>
+                <td>{{list.3}}</td>
+                <td>{{list.4}}</td>
+                <td>{{list.5}}</td>
+                <td><a href="/update/{{list.6}}">edit</a></td>
+                <td><a href="/delete/{{list.7}}">delete</a></td>
+
+                </tr>
+        {%endfor%}
+        </table>
+        <hr>
+        <td>
+        <center>
+            <button>
+            <td><a href="/{{filenumber}}">Add hosts</a></td>
+            </button>
+    <button>
+            <a href="{% url 'filenamedisplay' %}">Go to Testbed Records </a>
+            </button>
+    <hr>
+    <b style = "color:green;">Host entries and YAML files are updated.</b>
+        </center>
+        </td>
+
+</center>
+{% endblock %}
+
+
+
+
+

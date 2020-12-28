@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<head>
+    <title>Delete Host</title>
+</head>
+<body>
+<center>
+
+    <h2> Delete host id {{YAMLEntry.id}}? </h2>
+    <hr/>
+    <form action = "/delete/{{YAMLEntry.id}}" method="POST">
+
+    {%csrf_token%}
+
+    <input type="submit" value="Delete" >
+    <button>
+    <a href="/dashboard/{{id1}}">Cancel</a>
+    </button>
+
+    </form>
+
+    <hr>
+
+
+    <hr/>
+        {% if messages %}
+        {% for result in messages %}
+        <b style = "color:green;">{{result}}</b>
+        {% endfor %}
+        {% endif %}
+
+</center>
+</body>
+
+{% endblock %}
